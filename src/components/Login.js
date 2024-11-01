@@ -6,6 +6,7 @@ import {  createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfi
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { photoURL } from '../utils/constants';
 import { adduser } from '../utils/userSlice';
 
 
@@ -31,11 +32,10 @@ const Login = () => {
         // Signed up 
         const user = userCredential.user;
         updateProfile(user, {
-          displayName: name.current.value, photoURL: "https://i.pinimg.com/1200x/1b/a2/e6/1ba2e6d1d4874546c70c91f1024e17fb.jpg"
+          displayName: name.current.value, photoURL: photoURL
         }).then(() => {
           const {uid,email,displayName,photoURL} = auth.currentUser;
           dispatch(adduser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));        
-          navigate("/browse")
 
         }).catch((error) => {
           // An error occurred
@@ -58,7 +58,6 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate("/browse")
         
         // ...
       })
