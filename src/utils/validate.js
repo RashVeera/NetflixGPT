@@ -6,11 +6,8 @@ export const checkvaliddate =(name,email,password) =>{
     if(!emailvalid) return "Invalid Email ID found!"
     if(!passwordvalid) return "Invalid Password found!"
 
-    console.log(name)
-
     if(name !== null){
-        const namevalid=/^(?=.{6,}$)[A-Za-z]+(?: [A-Za-z]+){0,2}$/.test(name);
-        console.log(namevalid)
+        const namevalid=/^(?=.{6,}$)[A-Za-z]+(?: [A-Za-z]+){0,2}$/.test(name.value);
         if(!namevalid) return "Invalid Name found!"
     }
     

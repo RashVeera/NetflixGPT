@@ -2,20 +2,73 @@ import React, { useRef, useState } from 'react'
 import Header from './Header'
 import backgroundimage from "../assets/backgroundimage.jpg"
 import { checkvaliddate } from '../utils/validate'
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { adduser } from '../utils/userSlice';
+
 
 const Login = () => {
     const [signIn,setsignIn]=useState(true)
     const email=useRef(null)
     const password=useRef(null)
     const name=useRef(null)
+    const dispatch=useDispatch()
     const [messages,setmessages]=useState(null)
+    const navigate=useNavigate();
     const toggleSignIn = ()=>{
         setsignIn(!signIn)
     }
     const handleclick=()=>{
-
-        const message=checkvaliddate(name.current.value,email.current.value,password.current.value)
+        const message=checkvaliddate(name.current ,email.current.value,password.current.value)
         setmessages(message)
+        if(message) return ;
+        if(!signIn){
+          //Sign Up Logic
+              createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name.current.value, photoURL: "https://i.pinimg.com/1200x/1b/a2/e6/1ba2e6d1d4874546c70c91f1024e17fb.jpg"
+        }).then(() => {
+          const {uid,email,displayName,photoURL} = auth.currentUser;
+          dispatch(adduser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));        
+          navigate("/browse")
+
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
+
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setmessages(errorCode+' '+errorMessage)
+        // ..
+      });
+
+
+        }
+        else{
+              signInWithEmailAndPassword(auth, email.current.value,password.current.value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        navigate("/browse")
+        
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setmessages(errorCode+' '+errorMessage)
+      });
+
+        }
     }
   return (
     <div className='relative'>    
