@@ -1,21 +1,37 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import netflix from "../assets/Netflix_Logo_PMS.png"
 import usericon from "../assets/usericon.png"
 import { auth } from '../utils/firebase'
-import { signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router'
 import downarrow from "../assets/downarrow.jpeg"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { adduser, removeuser } from '../utils/userSlice'
 
 
 const Header = () => {
   const navigate=useNavigate()
   const user_details=useSelector((store)=>store.user)
   const [showdiv,setshowdiv]=useState(false)
+  const dispatch=useDispatch()
+
+  useEffect(()=>{
+    const unsubscribe=onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {uid,email,displayName,photoURL} = user;
+        dispatch(adduser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));       
+        navigate("/browse") 
+      } else {
+        dispatch(removeuser())
+        navigate("/")
+      }
+    });   
+    return ()=> {unsubscribe();}
+  
+   },[])
 
   const signOutfunction=()=>{
     signOut(auth).then(() => {
-      navigate("/")
     }).catch((error) => {
       // An error happened.
     });
