@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router'
 import downarrow from "../assets/downarrow.jpeg"
 import { useDispatch, useSelector } from 'react-redux'
 import { adduser, removeuser } from '../utils/userSlice'
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -20,7 +21,7 @@ const Header = () => {
       if (user) {
         const {uid,email,displayName,photoURL} = user;
         dispatch(adduser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));       
-        navigate("/browse") 
+        // navigate("/browse") 
       } else {
         dispatch(removeuser())
         navigate("/")
@@ -43,7 +44,7 @@ const Header = () => {
   return (
     <>
     <div className='absolute w-screen z-20 bg-gradient-to-b from-black'>
-        <img className='w-32  z-10 ' alt='netflix-logo' src={netflix}/>
+        <Link to={"/browse"}><img className='w-32  z-10 ' alt='netflix-logo' src={netflix}/></Link>
         {user_details?.uid &&  
         <div className='flex justify-end -mt-10  items-end  gap-1 pr-3 z-40'> 
         <img className='w-8' src={user_details?.photoURL || usericon} alt="user-icon"/>

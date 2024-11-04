@@ -12,7 +12,7 @@ const MainContainer = () => {
     const movie_selected=useSelector((store)=>store.movie?.nowPlayingMovies)
     useTrailerVideo(movie_selected ? movie_selected[0].id : null);
     const trailer_video=useSelector((store)=>store.movie?.trailerVideo);
-    console.log(trailer_video)
+    // console.log(trailer_video)
 
     if (movie_selected===null || trailer_video===null) {return;}
     const movie_top=movie_selected[0]
@@ -21,7 +21,7 @@ const MainContainer = () => {
   return (
     <div>
        <VideoTitle title={original_title} description={overview}/>
-        <VideoTrailer key={trailer_video.key}/>
+        <VideoTrailer id={trailer_video.key}/>
     </div>
   )
 }
