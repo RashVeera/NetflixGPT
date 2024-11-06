@@ -21,7 +21,7 @@ const Body = () => {
   ]);
 
   return (
-    <div className="relative ">
+    <div className="relative overflow-x-clip">
       <RouterProvider router={appRouter} />
     </div>
   );

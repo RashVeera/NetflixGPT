@@ -90,13 +90,13 @@ const Login = () => {
     }
   };
   return (
-    <div className="relative w-screen">
+    <div className="relative   w-screen">
       <Header />
-      <img alt="background-image " className="absolute" src={backgroundimage} />
-      <div>
+      <img alt="background-image " className="h-screen object-cover w-screen fixed" src={backgroundimage} />
+      <div >
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-3/12 rounded-xl h-fit bg-black z-30 absolute ml-[560px] mt-36 flex flex-col gap-7 px-11 py-7 opacity-90 text-white"
+          className="w-screen lg:w-3/12 px-2 rounded-xl h-fit bg-black z-30 absolute  lg:ml-[560px] mt-20 md:mt-36 flex flex-col gap-7 lg:px-11 py-7 opacity-90 text-white"
         >
           <span className="font-bold text-xl">
             {signIn ? "Sign In" : "Sign Up"}

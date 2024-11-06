@@ -18,7 +18,7 @@ const Browse = () => {
   if (gptSearch === null) return;
 
   return (
-    <div className="h-screen   ">
+    <div className="h-screen overflow-x-clip ">
       <Header />
       {gptSearch ? (
         <GPTSearch />
