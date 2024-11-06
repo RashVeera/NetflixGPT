@@ -1,25 +1,35 @@
-import useMovieSlice from '../hooks/useMovieSlice';
-import Header from './Header'
-import MainContainer from './MainContainer';
-import SecondaryContainer from './SecondaryContainer';
-import usePopularMovies from '../hooks/usePopularMovies';
-import useTopRatedMovies from '../hooks/useTopRatedMovies';
-import useUpcomingMovies from '../hooks/useUpcomingMovies';
-
+import useMovieSlice from "../hooks/useMovieSlice";
+import Header from "./Header";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import { useSelector } from "react-redux";
+import GPTSearch from "./GPTSearch";
 
 const Browse = () => {
-  useMovieSlice()
+  useMovieSlice();
   usePopularMovies();
-  useTopRatedMovies()
+  useTopRatedMovies();
   useUpcomingMovies();
+  const gptSearch = useSelector((store) => store.gpt?.gptsearch);
+  console.log(gptSearch);
+  if (gptSearch === null) return;
 
   return (
-    <div className='h-screen   '>
-      <Header/>
-      <MainContainer/>
-      <SecondaryContainer/>
+    <div className="h-screen   ">
+      <Header />
+      {gptSearch ? (
+        <GPTSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Browse
+export default Browse;

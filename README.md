@@ -21,15 +21,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### Deployment
 
-You can deploy your website using firebase through 4 commands . For further knowledge you can refer to [firebase documentation](https://firebase.google.com/) .  
+You can deploy your website using firebase through 4 commands . For further knowledge you can refer to [firebase documentation](https://firebase.google.com/) .
 
 ### `npm i -g firebase-tools`
+
 ### `firebase login`
+
 ### `firebase init`
+
 ### `firebase deploy`
 
 # Functionality
 
-Using NetflixGPT website you'll be able to get movie recommendations for netflix website depending on your moods. 
+Using NetflixGPT website you'll be able to get movie recommendations for netflix website depending on your moods.
 
-You can view this website through [NetflixGPT](https://gptnetflix-1e506.web.app/). Please disable CORS plugin. 
+You can view this website through [NetflixGPT](https://gptnetflix-1e506.web.app/). Please disable CORS plugin.
