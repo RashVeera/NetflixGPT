@@ -73,6 +73,7 @@ const GPTSearch = () => {
   const handleclear = () => {
     input_Ref.current.value = "";
     dispatch(addclearState());
+    setMovies([])
   };
 
   return (
@@ -104,7 +105,7 @@ const GPTSearch = () => {
             onClick={handleclear}
             className="px-4 py-2 md:ml-64 xl:mt-0 md:mt-2 xl:ml-5 ml-4 rounded-md text-white bg-red-700"
           >
-            Clear 
+            {lang[language_selected].clear} 
           </button>
         </form>
         {<ShowGPTResults />}
