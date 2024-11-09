@@ -10,7 +10,6 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
 ### Core Features
 - **Login/Sign Up** - Users can sign up or log in to access the app.
 - **Authentication** - Secure sign-in and sign-out functionality with Firebase.
-- **Profile Management** - Update user profile details.
 - **GPT Movie Suggestions** - Search for movies and get AI-powered recommendations.
 - **Responsive Design** - TailwindCSS ensures a responsive and aesthetic UI across devices.
 
@@ -18,7 +17,7 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
 - **Main Movie Display** - Shows main movie trailer in background, title, and description.
 - **Movie Suggestions** - AI-powered movie suggestions based on user preferences.
 - **Multiple Movie Lists** - Dynamic categories of movies, such as popular and trending.
-- **Search Bar with GPT** - A search bar powered by OpenAI GPT for interactive movie suggestions.
+- **Search Bar with GPT** - A search bar powered by Groq GPT for interactive movie suggestions.
 
 ## Project Setup and Structure
 
@@ -28,7 +27,7 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
 - **Firebase** - For hosting, authentication, and database.
 - **Redux** - State management.
 - **TMDB API** - Fetch movie data.
-- **OpenAI API** - GPT integration for AI movie suggestions.
+- **Groq API** - GPT integration for AI movie suggestions.
 
 ### Main Components and Features
 
@@ -49,10 +48,6 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
    - Fetched GPT movie suggestions from TMDB and updated `gptSlice`.
 7. **Video Integration** - Autoplay and mute trailer videos using YouTube embeds.
 8. **Responsive Design** - Made the application responsive across devices.
-9. **Bug Fixes**
-   - Display name and profile picture update on sign-up.
-   - Redirect to login if the user is not authenticated.
-   - Unsubscribed from `onAuthStateChanged` callback.
 
 ### Environment Variables
 - Added `.env` file for storing API keys securely.
@@ -80,7 +75,7 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
     ```bash
     REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
     REACT_APP_TMDB_API_KEY=your_tmdb_api_key
-    REACT_APP_OPENAI_API_KEY=your_openai_api_key
+    REACT_APP_GROQ_API_KEY=your_groq_api_key
     ```
 5. **Run the app locally**:
     ```bash
