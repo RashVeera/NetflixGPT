@@ -98,3 +98,5 @@ This project is a Netflix-inspired application powered by GPT and TMDB APIs, hos
 ### Issues with accessing TMDB API
 
 - **TMDB API's maybe inaccessible to some users in India due to government restrictions. Some users have worked around this issue by changing their DNS to options like Google’s (8.8.8.8) or Cloudflare’s (1.1.1.1), or by using a VPN**
+
+[![Watch the demo](https://img.youtube.com/vi/pgxrudVF4Wc/0.jpg)](https://www.youtube.com/watch?v=pgxrudVF4Wc)
