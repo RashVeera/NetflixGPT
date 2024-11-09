@@ -73,38 +73,39 @@ const GPTSearch = () => {
   const handleclear = () => {
     input_Ref.current.value = "";
     dispatch(addclearState());
+    setMovies([])
   };
 
   return (
     <div className="relative w-screen">
       <img
         alt="background-image"
-        className="fixed -z-10"
+        className="h-screen fixed  object-cover xl:h-fit  -z-10"
         src={backgroundimage}
       />
 
-      <div className="pt-[10%]  ">
+      <div className="absolute -ml-56   lg:-ml-0 top-32 md:top-0 md:relative md:pt-[10%]  ">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="bg-black ml-64 w-3/5 m-2 h-40 flex gap-5 justify-center items-center"
+          className="bg-black  ml-60 md:ml-72 w-3/5 m-2 h-40 flex-col md:flex-row md:gap-5 md:justify-center md:items-center"
         >
           <input
             ref={input_Ref}
-            className="py-3 px-5 w-3/6"
+            className="py-3 px-5 ml-12 mt-10 w-4/5 md:w-3/6 md:mt-14 md:ml-36"
             type="search"
             placeholder={lang[language_selected].searchGPTPlaceholder}
           />
           <button
             onClick={handleClick}
-            className="px-4 py-2 rounded-md text-white bg-red-700"
+            className="px-4 py-2 mt-2 ml-32 md:mt-0 md:ml-5 md:inline rounded-md text-white bg-red-700"
           >
             {lang[language_selected].search}
           </button>
           <button
             onClick={handleclear}
-            className="px-4 py-2 rounded-md text-white bg-red-700"
+            className="px-4 py-2 md:ml-64 xl:mt-0 md:mt-2 xl:ml-5 ml-4 rounded-md text-white bg-red-700"
           >
-            Clear Search
+            {lang[language_selected].clear} 
           </button>
         </form>
         {<ShowGPTResults />}

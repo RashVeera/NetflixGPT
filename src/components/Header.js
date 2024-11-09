@@ -62,12 +62,12 @@ const Header = () => {
 
   return (
     <>
-      <div className="absolute w-screen z-20 bg-gradient-to-b from-black">
+      <div className="absolute overflow-x-hidden overflow-y-clip w-screen z-20 bg-gradient-to-b from-black">
         <Link to={"/browse"} onClick={() => dispatch(addShowCards(false))}>
           <img className="w-32  z-10 " alt="netflix-logo" src={netflix} />
         </Link>
         {user_details?.uid && (
-          <div className="flex justify-end -mt-10  items-end  gap-1 pr-3 z-40">
+          <div className="flex justify-end -mt-11  md:-mt-10  items-end  gap-1 pr-6 z-40">
             {showGPT && (
               <select
                 className="py-1  px-1 bg-gray-700 text-white mr-2"
@@ -99,7 +99,7 @@ const Header = () => {
         )}
       </div>
       {showdiv && (
-        <div className="w-44 ml-[1350px] absolute top-14 h-32 bg-black opacity-90 rounded-md text-gray-400 z-50">
+        <div className="w-44 right-0 absolute top-14 h-32 bg-black opacity-90 rounded-md text-gray-400 z-50">
           <ul className="p-3 list-none  font-sans ">
             <li className="text-sm py-2 border-b-2 border-gray-500 border-solid cursor-pointer">
               {user_details?.displayName}

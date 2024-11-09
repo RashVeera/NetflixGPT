@@ -15,7 +15,7 @@ const MovieCard = ({ movies }) => {
         {" "}
         <img
           alt="poster_path"
-          className="w-44 cursor-pointer h-52 hover:scale-[0.8]"
+          className="w-32 h-40 md:w-44 cursor-pointer md:h-52 hover:scale-[0.8]"
           src={"https://image.tmdb.org/t/p/w500/" + poster_path}
         />
       </Link>

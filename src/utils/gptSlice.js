@@ -6,7 +6,6 @@ const gptslice = createSlice({
     gptsearch: false,
     showGPTMovies: null,
     showGPTMovieNames: null,
-    clearstates: null,
   },
   reducers: {
     addGPTSearch: (state, action) => {

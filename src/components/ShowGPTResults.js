@@ -16,7 +16,7 @@ const ShowGPTResults = () => {
   return gptMovieResults.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="w-4/5 bg-black opacity-90 mt-72 ml-52 px-11 ">
+    <div className="w-3/5 ml-60 md:ml-72 lg:w-4/5 bg-black opacity-90 mt-72 lg:ml-48 px-11 ">
       {gptMovieResults.map((movie, index) => (
         <MovieList title={gptMovieNames[index]} moviesList={movie} />
       ))}

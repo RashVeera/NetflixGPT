@@ -17,15 +17,15 @@ const MovieDetails = () => {
   if (trailer_video === null) return;
   console.log(trailer_video);
   return (
-    <div className="relative w-screen aspect-auto">
+    <div className="relative w-screen aspect-auto ">
       {/* <div className=' inset-0  absolute z-10 bg-gradient-to-r from-black to-transparent'></div> */}
-      <div className="absolute w-screen z-20 bg-gradient-to-b from-black flex gap-[1300px]">
+      <div className="absolute w-screen  z-20 bg-gradient-to-b from-black flex  justify-between">
         <Link to={"/browse"} onClick={() => dispatch(addShowCards(false))}>
           <img className="w-32  z-10 " alt="netflix-logo" src={netflix} />
         </Link>
 
         <Link to={"/browse"}>
-          <button className="text-white bg-red-700  h-9 mt-2 px-2">
+          <button className="text-white bg-red-700 mr-6  h-9 mt-2 px-2">
             Return
           </button>
         </Link>
